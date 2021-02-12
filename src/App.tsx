@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Provider} from 'react-redux';
+import {store} from './store'
+import Header from './components/pages/Header';
+import History from './components/expense/History';
+import AddTransaction from './components/expense/AddTransaction';
+import Calculation from './components/expense/Calculation';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Header />
+      <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          <Calculation />
+          <AddTransaction />
+        </div>
+        <div className="col-md-6">
+          <History />
+        </div>
+      </div>
+      </div>
+    </Provider>
   );
 }
 
