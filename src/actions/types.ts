@@ -13,13 +13,13 @@ export enum ActionType {
     ADD_TRANSACTION,
     REMOVE_TRANSACTION
 }
-export interface addRecord {
+export interface addTransactionI {
     type: ActionType.ADD_TRANSACTION,
     payload: expenseI
 }
-export interface removeRecord {
+export interface removeTransactionI {
     type: ActionType.REMOVE_TRANSACTION,
     payload: number
 }
 
-export type ActionI = addRecord | removeRecord;
+export type ActionI = addTransactionI | removeTransactionI;
